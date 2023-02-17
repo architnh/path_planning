@@ -1,8 +1,7 @@
 # Comparison of Dijkstra's and A* for path planning.
 Repository for comparison of multiple path-planning approaches like Dijkstra's, A*.
 
-<img src=docs/dijkstras.gif height="200" width="200" > 
-<img src=docs/astar.gif height="200" width="200" > 
+<img src=docs/dijkstras.gif height="250" width="250" /> <img src=docs/astar.gif height="250" width="250" /> 
 
 <p></p>
 
