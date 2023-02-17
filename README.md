@@ -1,11 +1,46 @@
-# Comparison of Dijkstra's and A* for path planning.
-Repository for comparison of multiple path-planning approaches like Dijkstra's, A*.
 
-<img src=docs/dijkstras.gif height="250" width="250" /> <img src=docs/astar.gif height="250" width="250" /> 
+# Comparison of Dijkstra's and A* for path planning.
+## Overview :
+Repository for comparison of multiple path-planning approaches like Dijkstra's, A*. This was part of the MEAM 6200 Advanced Robotics class by Dr. M. Ani Hsieh at University of Pennsylvania. While planning for quadrotor motion in cluttered environments, it is necessary to study muliple approaches for better path planning. Following is a comparison between two approaches.
+
+<img src=docs/dijkstras.gif height="350" width="350" /> <img src=docs/astar.gif height="350" width="350" /> 
 
 <p></p>
 
+## RRT Pseudocode:
 
+ 
+``` 1  function Dijkstra(Graph, source):                                                      ```
+``` 2      dist[source] ← 0                           // Initialization                       ```
+``` 3                                                                                         ```
+``` 4      create vertex priority queue Q                                                     ```      
+``` 5                                                                                         ```     
+``` 6      for each vertex v in Graph.Vertices:                                               ```    
+``` 7          if v ≠ source                                                                  ```                                    
+``` 8              dist[v] ← INFINITY                 // Unknown distance from source to v    ```                                               
+``` 9              prev[v] ← UNDEFINED                // Predecessor of v                     ```                              
+``` 10                                                                                        ```              
+``` 11         Q.add_with_priority(v, dist[v])                                                ```   
+``` 12                                                                                        ```              
+``` 13                                                                                        ```              
+``` 14     while Q is not empty:                      // The main loop                        ```                           
+``` 15         u ← Q.extract_min()                    // Remove and return best vertex        ```                                           
+``` 16         for each neighbor v of u:              // Go through all v neighbors of u      ```                                             
+``` 17             alt ← dist[u] + Graph.Edges(u, v)                                          ```         
+``` 18             if alt < dist[v]:                                                          ```                                            
+``` 19                 dist[v] ← alt                                                          ```                                            
+``` 20                 prev[v] ← u                                                            ```                                          
+``` 21                 Q.decrease_priority(v, alt)                                            ```       
+``` 22                                                                                        ```              
+``` 23     return dist, prev                                                                  ```                                    
+
+The pseudocode of Dijkstra's algorithm using heap queue that I used is listed as above. ([Source](https://en.wikipedia.org/wiki/Dijkstra's_algorithm)) &emsp;
+
+<!-- ## RRT Pseudocode:
+
+![astar_algo](docs/astar_algo.png)
+
+The pseudocode of A* algorithm using heap queue that I used is listed as above. -->
 <!-- 
 
 # Motion Planning using RRT and RRT*
