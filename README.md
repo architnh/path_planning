@@ -9,30 +9,31 @@ Repository for comparison of multiple path-planning approaches like Dijkstra's, 
 
 ## RRT Pseudocode:
 
- 
-``` 1  function Dijkstra(Graph, source):                                                      ```
-``` 2      dist[source] ← 0                           // Initialization                       ```
-``` 3                                                                                         ```
-``` 4      create vertex priority queue Q                                                     ```      
-``` 5                                                                                         ```     
-``` 6      for each vertex v in Graph.Vertices:                                               ```    
-``` 7          if v ≠ source                                                                  ```                                    
-``` 8              dist[v] ← INFINITY                 // Unknown distance from source to v    ```                                               
-``` 9              prev[v] ← UNDEFINED                // Predecessor of v                     ```                              
-``` 10                                                                                        ```              
-``` 11         Q.add_with_priority(v, dist[v])                                                ```   
-``` 12                                                                                        ```              
-``` 13                                                                                        ```              
-``` 14     while Q is not empty:                      // The main loop                        ```                           
-``` 15         u ← Q.extract_min()                    // Remove and return best vertex        ```                                           
-``` 16         for each neighbor v of u:              // Go through all v neighbors of u      ```                                             
-``` 17             alt ← dist[u] + Graph.Edges(u, v)                                          ```         
-``` 18             if alt < dist[v]:                                                          ```                                            
-``` 19                 dist[v] ← alt                                                          ```                                            
-``` 20                 prev[v] ← u                                                            ```                                          
-``` 21                 Q.decrease_priority(v, alt)                                            ```       
-``` 22                                                                                        ```              
-``` 23     return dist, prev                                                                  ```                                    
+``` 
+function Dijkstra(Graph, source):                                                  
+    dist[source] ← 0                           // Initialization                   
+                                                                                
+    create vertex priority queue Q                                                       
+                                                                                     
+    for each vertex v in Graph.Vertices:                                               
+        if v ≠ source                                                                                                  
+            dist[v] ← INFINITY                 // Unknown distance from source to v                                               
+            prev[v] ← UNDEFINED                // Predecessor of v                                               
+                                                                                              
+        Q.add_with_priority(v, dist[v])                                               
+                                                                                              
+                                                                                              
+    while Q is not empty:                      // The main loop                                               
+        u ← Q.extract_min()                    // Remove and return best vertex                                               
+        for each neighbor v of u:              // Go through all v neighbors of u                                               
+            alt ← dist[u] + Graph.Edges(u, v)                                               
+            if alt < dist[v]:                                                                                                  
+                dist[v] ← alt                                                                                                  
+                prev[v] ← u                                                                                                  
+                Q.decrease_priority(v, alt)                                               
+                                                                                              
+    return dist, prev
+```                                  
 
 The pseudocode of Dijkstra's algorithm using heap queue that I used is listed as above. ([Source](https://en.wikipedia.org/wiki/Dijkstra's_algorithm)) &emsp;
 
