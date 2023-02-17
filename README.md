@@ -73,12 +73,12 @@ function Dijkstra(Graph, source):
 The pseudocode of A* algorithm using heap queue that I used is listed as above. The only different is that in addition to the pre-existing functions for dijkstra's and the cost evaluation, heap algorithm, there is an inbuilt distance heuristic that helps it to quickly converge in the direction of the goal with expanding less number of nodes than Dijkstra's.
 
 
-<img src=docs/astar_dijkstra.png height="540" width="960" /> 
+<img src=docs/astar_dijkstra.png height="500" width="960" /> 
 Figure 2: Path returned by Dijkstra's (green) vs A* (blue).
 
 
 ## Comparison:
 Finally, a comparison between the two yielded some interesting results. Both algorithms were carried out in the same environment with different resolution of step sizes while expanding the nodes. The results show that as the resolution increases, the time needed goes up, and the number of nodes expanded go up for both approaches, but the difference between Dijkstra's and A* starts becoming more significant. 
 
-<img src=docs/statistics.png height="540" width="960" /> 
+<img src=docs/statistics.png height="500" width="960" /> 
 Figure 2: Number of nodes expanded vs resolution [x,y,z] in meters.
